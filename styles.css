@@ -1,0 +1,274 @@
+html {
+    overscroll-behavior: none;
+}
+
+body {
+    margin: 0;
+    position: relative;
+    background: linear-gradient(0deg,black, #FF5500 85% ,#FF9620);
+    z-index: 0;
+}
+
+body::before {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 10% -15%, #FEE96B, transparent 30%),
+        radial-gradient(circle at 100% -5%, #FEE96B, transparent 30%),
+        radial-gradient(circle at 60% 0%, #FF9620, transparent 15%),
+        radial-gradient(circle at 50% 20%, #FF9620, transparent 15%),
+        radial-gradient(circle at 80% 55%, #FF9620, transparent 30%),
+        radial-gradient(circle at 20% 0%, #FF5500, transparent 40%),
+        radial-gradient(circle at 10% 100%, black, transparent 50%),
+        radial-gradient(circle at 100% 100%, black, transparent 40%),
+        linear-gradient(to top right,black, #FF5500 70% ,#FF9620);
+    z-index: -2;
+    filter: blur(100px);
+}
+
+body::after {
+    pointer-events: none;
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    opacity: 0.18;
+    background: url(assets/noise.svg);
+    z-index: -1;
+}
+
+p {
+    color: whitesmoke;
+    font-family: "PT Serif", sans-serif;
+    font-size: 18px;
+    margin: 0;
+}
+
+h1 {
+    color: whitesmoke;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 600;
+    font-size: 57px;
+    margin: 0;
+    text-align: center;
+
+    animation: 1.5s fadeInUp;
+}
+
+h2 {
+    color: whitesmoke;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 32px;
+    margin: 0;
+}
+
+a {
+    color: #57504d;
+    text-decoration: none;
+    font-size: x-large;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+a:visited {
+    color: #57504d;
+    text-decoration: none;
+}
+
+nav {
+    padding: 10px 60px;
+}
+
+.nav-links {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    flex-direction: row;
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+}
+
+main {
+    padding: 0px 40px;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+#ring {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ring-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+cite {
+    color: whitesmoke;
+}
+
+#sword {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sword-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blender-ring, .blender-sword {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 220px;
+    width: 100%;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+}
+
+address {
+    font-style: normal;
+}
+
+@keyframes fade-in {
+    to {scale: 1; opacity: 1}
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Default is mobile (above CSS), below is for larger screens (tablet/laptop) */
+@media (min-width: 768px){
+    .hero {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        height: 80vh;
+    }
+
+    #ring {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+        padding: 40px
+    }
+
+    /* TODO: Update this once model is in */
+    .blender-ring{
+        flex: 1;
+        min-height: 300px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ring-desc {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #sword {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 40px;
+        padding: 40px
+    }
+
+    /* TODO: Update this once model is in */
+    .blender-sword{
+        flex: 1;
+        min-height: 300px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sword-desc {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .sword-desc p {
+        text-align: end;
+    }
+
+    #ring-title {
+        animation: fadeInLeft linear;
+        animation-timeline: view();
+        animation-range-start: entry;
+        animation-range-end: entry 350px;
+    }
+    
+    #sword-title {
+        animation: fadeInRight linear;
+        animation-timeline: view();
+        animation-range-start: entry;
+        animation-range-end: entry 350px;
+    }
+
+    blockquote > p, cite {
+        scale: 0.8; opacity: 0;
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range-start: entry;
+        animation-range-end: entry 300px;
+    }
+}

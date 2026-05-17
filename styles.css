@@ -1,9 +1,12 @@
 html {
     overscroll-behavior: none;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     margin: 0;
+    padding: 0;
     position: relative;
     background: linear-gradient(0deg,black, #FF5500 85% ,#FF9620);
     z-index: 0;
@@ -96,7 +99,8 @@ ul {
 }
 
 main {
-    padding: 0px 40px;
+    padding: 0px 10px;
+    margin: 0;
 }
 
 .hero {
@@ -208,19 +212,25 @@ address {
         padding: 40px
     }
 
-    /* TODO: Update this once model is in */
     .blender-ring{
-        flex: 1;
-        min-height: 300px;
-        justify-content: center;
-        align-items: center;
+        flex: 1 1 0;
+        height: 400px;
+        width: 50%;
+        min-width: 0;
     }
 
     .ring-desc {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        align-items: flex-start;
+        align-items: flex-start; 
+        flex: 1 1 0;
+        width: 50%;
+        min-width: 0;
+    }
+
+    .ring-model {
+        width: 100%;
+        height: 100%;
+        display: block;
+        touch-action: none;
     }
 
     #sword {
